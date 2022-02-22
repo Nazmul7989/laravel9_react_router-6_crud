@@ -51,7 +51,7 @@ class StudentController extends Controller
                 $student->image = "/uploads/".$image;
             }
 
-           
+
             $student->name  = $request->name;
             $student->age   = $request->age;
             $student->class = $request->class;
@@ -130,7 +130,7 @@ class StudentController extends Controller
     }
 
 
-    public function destroy(Student $student,$id)
+    public function destroy($id)
     {
 
         $student = Student::findOrFail($id);
