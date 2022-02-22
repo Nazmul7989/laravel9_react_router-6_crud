@@ -51,6 +51,7 @@ class StudentController extends Controller
                 $student->image = "/uploads/".$image;
             }
 
+           
             $student->name  = $request->name;
             $student->age   = $request->age;
             $student->class = $request->class;

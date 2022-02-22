@@ -79,7 +79,8 @@ const Home = () => {
         formData.append('class',classname);
         formData.append('image',image);
 
-        const res = await axios.post('/api/student/store',formData);
+
+        const res = await axios.post('http://localhost:8000/api/student/store',formData);
 
         if (res.data.status === 200){
 
@@ -250,7 +251,7 @@ const Home = () => {
             return <tr key={student.id}>
                 <td>{student.id}</td>
                 <td>
-                    <img src={student.image} style={{width: '120px',height: '80px'}} alt="Image"/>
+                    <img src={"http://localhost:8000" + student.image} style={{width: '120px',height: '80px'}} alt="Image"/>
                 </td>
                 <td>{student.name}</td>
                 <td>{student.age}</td>
@@ -336,7 +337,12 @@ const Home = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-3 text-end">
-                                                    <img src={previewImage} style={{width: '80px',height:'55px', marginTop:'-10px'}} alt="Preview"/>
+                                                    {addNew === true? (
+                                                        <img src={ previewImage} style={{width: '80px',height:'55px', marginTop:'-10px'}} alt="Preview"/>
+                                                    ) : (
+                                                        <img src={"http://localhost:8000" + previewImage} style={{width: '80px',height:'55px', marginTop:'-10px'}} alt="Preview"/>
+                                                    )}
+
                                                 </div>
                                             </div>
                                         </div>
